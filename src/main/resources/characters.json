@@ -1,0 +1,377 @@
+[
+    {
+        "source": "Portal",
+        "characters": [
+            {
+                "name": "GLaDOS"
+            },
+            {
+                "name": "Wheatley"
+            },
+            {
+                "name": "Sentry Turret"
+            },
+            {
+                "name": "Chell"
+            }
+        ]
+    },
+    {
+        "source": "My Little Pony: Friendship is Magic",
+        "characters": [
+            {
+                "name": "Twilight Sparkle"
+            },
+            {
+                "name": "Fluttershy"
+            },
+            {
+                "name": "Rarity"
+            },
+            {
+                "name": "Rainbow Dash"
+            },
+            {
+                "name": "Pinkie Pie"
+            },
+            {
+                "name": "Applejack"
+            },
+            {
+                "name": "Princess Celestia"
+            },
+            {
+                "name": "Princess Luna"
+            },
+            {
+                "name": "Spike"
+            },
+            {
+                "name": "Starlight Glimmer"
+            },
+            {
+                "name": "Trixie"
+            },
+            {
+                "name": "Apple Bloom"
+            },
+            {
+                "name": "Sweetie Belle"
+            },
+            {
+                "name": "Scootaloo"
+            },
+            {
+                "name": "Zecora"
+            },
+            {
+                "name": "Derpy Hooves"
+            },
+            {
+                "name": "Lyra"
+            },
+            {
+                "name": "Bon Bon"
+            },
+            {
+                "name": "Princess Cadance"
+            },
+            {
+                "name": "Cozy Glow"
+            },
+            {
+                "name": "Queen Chrysalis"
+            },
+            {
+                "name": "Spitfire"
+            },
+            {
+                "name": "Big Mac"
+            },
+            {
+                "name": "Sunburst"
+            },
+            {
+                "name": "Minuette"
+            },
+            {
+                "name": "Cheerilee"
+            },
+            {
+                "name": "Coco Pommel"
+            },
+            {
+                "name": "Maud Pie"
+            },
+            {
+                "name": "Shining Armor"
+            },
+            {
+                "name": "Sugar Belle"
+            },
+            {
+                "name": "Vapor Trail"
+            },
+            {
+                "name": "Moondancer"
+            },
+            {
+                "name": "Lightning Dust"
+            },
+            {
+                "name": "Discord"
+            },
+            {
+                "name": "Soarin'",
+                "alias": "Soarin"
+            },
+            {
+                "name": "Diamond Tiara"
+            },
+            {
+                "name": "Silver Spoon"
+            },
+            {
+                "name": "Octavia"
+            },
+            {
+                "name": "Gilda"
+            },
+            {
+                "name": "Gabby"
+            },
+            {
+                "name": "Limestone Pie"
+            },
+            {
+                "name": "Braeburn"
+            },
+            {
+                "name": "Daring Do"
+            },
+            {
+                "name": "Snips"
+            },
+            {
+                "name": "Snails"
+            }
+        ]
+    },
+    {
+        "source": "2001: A Space Odyssey",
+        "characters": [
+            {
+                "name": "HAL 9000"
+            }
+        ]
+    },
+    {
+        "source": "SpongeBob SquarePants",
+        "characters": [
+            {
+                "name": "SpongeBob SquarePants",
+                "alias": "SpongeBob"
+            }
+        ]
+    },
+    {
+        "source": "Team Fortress 2",
+        "characters": [
+            {
+                "name": "Miss Pauling"
+            },
+            {
+                "name": "Scout"
+            },
+            {
+                "name": "Soldier"
+            },
+            {
+                "name": "Demoman"
+            },
+            {
+                "name": "Heavy"
+            },
+            {
+                "name": "Engineer"
+            },
+            {
+                "name": "Medic"
+            },
+            {
+                "name": "Sniper"
+            },
+            {
+                "name": "Spy"
+            },
+            {
+                "name": "Administrator"
+            }
+        ]
+    },
+    {
+        "source": "Daria",
+        "characters": [
+            {
+                "name": "Daria Morgendorffer"
+            },
+            {
+                "name": "Jane Lane"
+            }
+        ]
+    },
+    {
+        "source": "Persona 4",
+        "characters": [
+            {
+                "name": "Rise Kujikawa"
+            }
+        ]
+    },
+    {
+        "source": "HuniePop",
+        "characters": [
+            {
+                "name": "Kyu Sugardust"
+            }
+        ]
+    },
+    {
+        "source": "The Stanley Parable",
+        "characters": [
+            {
+                "name": "The Narrator"
+            },
+            {
+                "name": "Stanley"
+            }
+        ]
+    },
+    {
+        "source": "Dan Vs.",
+        "characters": [
+            {
+                "name": "Dan"
+            }
+        ]
+    },
+    {
+        "source": "Aqua Teen Hunger Force",
+        "characters": [
+            {
+                "name": "Carl Brutananadilewski"
+            }
+        ]
+    },
+    {
+        "source": "Equestria Girls",
+        "characters": [
+            {
+                "name": "Sunset Shimmer"
+            },
+            {
+                "name": "Adagio Dazzle"
+            },
+            {
+                "name": "Aria Blaze"
+            },
+            {
+                "name": "Sonata Dusk"
+            }
+        ]
+    },
+    {
+        "source": "Doctor Who",
+        "characters": [
+            {
+                "name": "Tenth Doctor"
+            }
+        ]
+    },
+    {
+        "source": "Half-Life",
+        "characters": [
+            {
+                "name": "Black Mesa Announcer"
+            },
+            {
+                "name": "Gordon Freeman"
+            }
+        ]
+    },
+    {
+        "source": "Steven Universe",
+        "characters": [
+            {
+                "name": "Steven Universe"
+            }
+        ]
+    },
+    {
+        "source": "Undertale",
+        "characters": [
+            {
+                "name": "Sans"
+            },
+            {
+                "name": "Papyrus"
+            },
+            {
+                "name": "Flowey"
+            },
+            {
+                "name": "Toriel"
+            },
+            {
+                "name": "Asgore"
+            },
+            {
+                "name": "Asriel"
+            },
+            {
+                "name": "Alphys"
+            },
+            {
+                "name": "Undyne"
+            },
+            {
+                "name": "Mettaton"
+            },
+            {
+                "name": "Temmie"
+            },
+            {
+                "name": "Ralsei"
+            },
+            {
+                "name": "Susie"
+            },
+            {
+                "name": "Lancer"
+            },
+            {
+                "name": "Gaster"
+            }
+        ]
+    },
+    {
+        "source": "Celeste",
+        "characters": [
+            {
+                "name": "Madeline"
+            },
+            {
+                "name": "Theo"
+            },
+            {
+                "name": "Badeline"
+            },
+            {
+                "name": "Oshiro"
+            },
+            {
+                "name": "Granny"
+            }
+        ]
+    }
+]
