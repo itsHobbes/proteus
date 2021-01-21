@@ -25,6 +25,14 @@ public class Character {
   public String getAlias() {
     return alias;
   }
+  
+  public String getDisplayName() {
+    if (alias != null) {
+      return alias;
+    } else {
+      return name;
+    }
+  }
 
   public boolean matches(String name) {
     if (alias == null) {

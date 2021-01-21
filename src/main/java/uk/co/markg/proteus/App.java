@@ -21,7 +21,7 @@ public class App {
         .description("Proteus: A bot that talks like .. anyone?")
         .autogenerateReadmeWithNameAndPath("", "COMMANDS.md");
 
-    var builder = Dispatcher.init(JDABuilder.create(System.getenv("LAMBDA_TOKEN"), getIntents()),
+    var builder = Dispatcher.init(JDABuilder.create(System.getenv("PROTEUS_TOKEN"), getIntents()),
         dispatcherBuilder.build());
     builder.disableCache(getFlags());
     builder.build().awaitReady();

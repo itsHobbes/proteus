@@ -18,6 +18,7 @@
     },
     {
         "source": "My Little Pony: Friendship is Magic",
+        "alias": "MLP",
         "characters": [
             {
                 "name": "Twilight Sparkle"
@@ -249,6 +250,7 @@
     },
     {
         "source": "Dan Vs.",
+        "alias": "Dan Vs",
         "characters": [
             {
                 "name": "Dan"

@@ -1,21 +1,19 @@
 package uk.co.markg.proteus.data;
 
-import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CharacterCollection {
 
   private String source;
+  private String alias;
   private List<Character> characters;
 
-  public CharacterCollection(String source, List<Character> characters) {
+  public CharacterCollection(@JsonProperty("source") String source,
+      @JsonProperty("alias") String alias, @JsonProperty("characters") List<Character> characters) {
     this.source = source;
+    this.alias = alias;
     this.characters = characters;
-  }
-
-  public CharacterCollection() {
-    this.source = "";
-    this.characters = new ArrayList<>();
   }
 
   /**
@@ -23,6 +21,21 @@ public class CharacterCollection {
    */
   public String getSource() {
     return source;
+  }
+
+  /**
+   * @return the alias
+   */
+  public String getAlias() {
+    return alias;
+  }
+
+  public String getDisplayName() {
+    if (alias != null) {
+      return alias;
+    } else {
+      return source;
+    }
   }
 
   /**
@@ -39,21 +52,6 @@ public class CharacterCollection {
       }
     }
     return "";
-  }
-
-  /**
-   * @return the characters
-   */
-  public String getCharactersAsString() {
-    StringBuilder sb = new StringBuilder();
-    for (Character character : characters) {
-      if (character.getAlias() == null || character.getAlias().isEmpty()) {
-        sb.append(character.getName()).append("\n");
-      } else {
-        sb.append(character.getAlias()).append("\n");
-      }
-    }
-    return sb.toString();
   }
 
 }

@@ -27,7 +27,6 @@ public class TextToSpeech {
     @Flag(shortName = 'c', longName = "c", description = "The name of the character to speak.",
         required = true)
     String character = "";
-
   }
 
   @Cooldown(amount = 10, unit = ChronoUnit.SECONDS, scope = CooldownScope.USER,
