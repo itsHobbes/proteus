@@ -12,6 +12,7 @@ import disparse.parser.reflection.Cooldown;
 import disparse.parser.reflection.Flag;
 import disparse.parser.reflection.MessageStrategy;
 import disparse.parser.reflection.ParsedEntity;
+import disparse.parser.reflection.Usage;
 import uk.co.markg.proteus.App;
 import uk.co.markg.proteus.data.CharacterCollection;
 import uk.co.markg.proteus.FifteenAIAPIRequest;
@@ -34,6 +35,8 @@ public class TextToSpeech {
       messageStrategy = MessageStrategy.REACT)
   @CommandHandler(commandName = commandName,
       description = "Speaks your message with a random voice")
+  @Usage(usage = "-c \"Twilight Sparkle\" Hey there everybody!",
+      description = "Twiglight Sparkle will say \"Hey there everybody!\"")
   public void speak(SpeakRequest args, DiscordRequest request) {
 
     if (channelIsNotAdded(request)) {
@@ -52,10 +55,12 @@ public class TextToSpeech {
           "Your chosen character does not exist! Use the show command to see a list of supported characters. Put quotes `\"` around characters with spaces in their names");
       return;
     }
+
     logger.info("Retreiving file");
     var apiRequest = new FifteenAIAPIRequest.Builder().withInput(getText(message))
         .withCharacter(character).build();
     event.getChannel().sendTyping().queue();
+
     try {
       var future = apiRequest.getAudio(event.getAuthor().getIdLong(), character);
       future.thenAccept(response -> event.getChannel().sendFile(response.toFile())

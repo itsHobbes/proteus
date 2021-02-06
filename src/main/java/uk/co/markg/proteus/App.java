@@ -39,6 +39,7 @@ public class App {
     flags.add(CacheFlag.ACTIVITY);
     flags.add(CacheFlag.VOICE_STATE);
     flags.add(CacheFlag.CLIENT_STATUS);
+    flags.add(CacheFlag.EMOTE);
     return EnumSet.copyOf(flags);
   }
 }

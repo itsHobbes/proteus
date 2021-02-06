@@ -14,6 +14,7 @@ import disparse.parser.reflection.Cooldown;
 import disparse.parser.reflection.Flag;
 import disparse.parser.reflection.MessageStrategy;
 import disparse.parser.reflection.ParsedEntity;
+import disparse.parser.reflection.Usage;
 import net.dv8tion.jda.api.EmbedBuilder;
 import uk.co.markg.proteus.data.Character;
 import uk.co.markg.proteus.data.CharacterCollection;
@@ -54,6 +55,7 @@ public class ShowCharacters {
   @Cooldown(amount = 10, unit = ChronoUnit.SECONDS, scope = CooldownScope.USER,
       messageStrategy = MessageStrategy.REACT)
   @CommandHandler(commandName = "characters", description = "Show a list of all characters")
+  @Usage(usage = "-s \"Half-life\"", description = "Will show all Half-life characters")
   public DiscordResponse listCharacters(CharacterRequest args, DiscordRequest request) {
     if (args.show.isEmpty()) {
       request.getEvent().getChannel()

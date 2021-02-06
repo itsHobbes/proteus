@@ -14,6 +14,7 @@ import disparse.parser.dispatch.CooldownScope;
 import disparse.parser.reflection.CommandHandler;
 import disparse.parser.reflection.Cooldown;
 import disparse.parser.reflection.MessageStrategy;
+import disparse.parser.reflection.Usage;
 
 public class ModifyChannel {
 
@@ -46,6 +47,7 @@ public class ModifyChannel {
   @Cooldown(amount = 10, unit = ChronoUnit.SECONDS, scope = CooldownScope.USER,
       messageStrategy = MessageStrategy.REACT)
   @CommandHandler(commandName = "add", description = "Add all mentioned channels")
+  @Usage(usage = "#my_awesome_channel #general", description = "Will add all mentioned channels")
   public void addChannel(DiscordRequest request) {
     var event = request.getEvent();
     long serverid = event.getGuild().getIdLong();
@@ -66,6 +68,7 @@ public class ModifyChannel {
   @Cooldown(amount = 10, unit = ChronoUnit.SECONDS, scope = CooldownScope.USER,
       messageStrategy = MessageStrategy.REACT)
   @CommandHandler(commandName = "remove", description = "Remove all mentioned channels")
+  @Usage(usage = "#my_awesome_channel #general", description = "Will remove all mentioned channels")
   public void removeChannel(DiscordRequest request) {
     var event = request.getEvent();
     long serverid = event.getGuild().getIdLong();

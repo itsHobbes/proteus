@@ -19,6 +19,7 @@ Add all mentioned channels
 * `-h`, `--help` : show usage of a particular command
 
 #### Usage
+* #my_awesome_channel #general -> Will add all mentioned channels
 ## characters
 
 Show a list of all characters
@@ -30,6 +31,7 @@ Show a list of all characters
 * `-s`, `--show` : The name of the media to display available characters
 
 #### Usage
+* -s "Half-life" -> Will show all Half-life characters
 ## remove
 
 Remove all mentioned channels
@@ -40,6 +42,7 @@ Remove all mentioned channels
 * `-h`, `--help` : show usage of a particular command
 
 #### Usage
+* #my_awesome_channel #general -> Will remove all mentioned channels
 ## speak
 
 Speaks your message with a random voice
@@ -51,6 +54,7 @@ Speaks your message with a random voice
 * `-h`, `--help` : show usage of a particular command
 
 #### Usage
+* -c "Twilight Sparkle" Hey there everybody! -> Twiglight Sparkle will say "Hey there everybody!"
 ## list
 
 Show a list of all characters
