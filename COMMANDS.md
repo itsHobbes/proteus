@@ -9,6 +9,16 @@ show all commands or detailed help of one command
 * `-p`, `--page` : select a specific page to showcase
 
 #### Usage
+## add
+
+Add all mentioned channels
+* **Cooldown:** 10 seconds per user
+* **Required Permission:** N/A
+* **Required Role:** N/A
+#### Arguments
+* `-h`, `--help` : show usage of a particular command
+
+#### Usage
 ## characters
 
 Show a list of all characters
@@ -18,6 +28,16 @@ Show a list of all characters
 #### Arguments
 * `-h`, `--help` : show usage of a particular command
 * `-s`, `--show` : The name of the media to display available characters
+
+#### Usage
+## remove
+
+Remove all mentioned channels
+* **Cooldown:** 10 seconds per user
+* **Required Permission:** N/A
+* **Required Role:** N/A
+#### Arguments
+* `-h`, `--help` : show usage of a particular command
 
 #### Usage
 ## speak
