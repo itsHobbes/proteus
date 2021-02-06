@@ -23,7 +23,7 @@ public class ModifyChannel {
     serverConfigs = loadServerConfigs();
   }
 
-  private Map<Long, Set<Long>> loadServerConfigs() {
+  public static Map<Long, Set<Long>> loadServerConfigs() {
     ObjectMapper mapper = new ObjectMapper();
     try {
       return mapper.readValue(new File("servers.json"), new TypeReference<Map<Long, Set<Long>>>() {

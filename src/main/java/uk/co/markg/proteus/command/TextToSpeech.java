@@ -1,6 +1,7 @@
 package uk.co.markg.proteus.command;
 
 import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -34,6 +35,11 @@ public class TextToSpeech {
   @CommandHandler(commandName = commandName,
       description = "Speaks your message with a random voice")
   public void speak(SpeakRequest args, DiscordRequest request) {
+
+    if (channelIsNotAdded(request)) {
+      return;
+    }
+
     var event = request.getEvent();
     String message = event.getMessage().getContentDisplay();
     if (message.length() > 300) {
@@ -51,11 +57,23 @@ public class TextToSpeech {
         .withCharacter(character).build();
     event.getChannel().sendTyping().queue();
     try {
-      var future = apiRequest.getAudio(event.getAuthor().getIdLong());
-      future.thenAccept(response -> event.getChannel().sendFile(response.toFile()).submit().thenAccept(r -> response.toFile().delete()));
+      var future = apiRequest.getAudio(event.getAuthor().getIdLong(), character);
+      future.thenAccept(response -> event.getChannel().sendFile(response.toFile())
+          .append(getText(message)).submit().thenAccept(r -> response.toFile().delete()));
     } catch (JsonProcessingException e) {
       e.printStackTrace();
     }
+  }
+
+  private boolean channelIsNotAdded(DiscordRequest request) {
+    var configs = ModifyChannel.loadServerConfigs();
+    var channels =
+        configs.getOrDefault(request.getEvent().getGuild().getIdLong(), new HashSet<Long>());
+    if (channels.contains(request.getEvent().getChannel().getIdLong())) {
+      return false;
+    }
+    System.out.println("Channel not added");
+    return true;
   }
 
   private String getText(String message) {

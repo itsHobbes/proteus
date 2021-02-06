@@ -51,7 +51,8 @@ public class FifteenAIAPIRequest {
     this.request = new Request(text, character, character, useDiagonal);
   }
 
-  public CompletableFuture<Path> getAudio(long userid) throws JsonProcessingException {
+  public CompletableFuture<Path> getAudio(long userid, String character)
+      throws JsonProcessingException {
     HttpClient client = HttpClient.newBuilder().version(Version.HTTP_2)
         .followRedirects(Redirect.NORMAL).connectTimeout(Duration.ofSeconds(20)).build();
 
@@ -59,7 +60,7 @@ public class FifteenAIAPIRequest {
         .timeout(Duration.ofMinutes(2)).header("Content-Type", "application/json")
         .POST(BodyPublishers.ofString(request.toJsonString())).build();
 
-    return client.sendAsync(req, BodyHandlers.ofFile(Path.of(userid + ".wav")))
+    return client.sendAsync(req, BodyHandlers.ofFile(Path.of(userid + "-" + character + ".wav")))
         .exceptionally(e -> null).thenApply(HttpResponse::body);
   }
 }
