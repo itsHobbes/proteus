@@ -19,7 +19,7 @@ import uk.co.markg.proteus.data.Character;
 import uk.co.markg.proteus.data.CharacterCollection;
 import java.awt.Color;
 
-public class Characters {
+public class ShowCharacters {
 
   public List<CharacterCollection> characters;
 

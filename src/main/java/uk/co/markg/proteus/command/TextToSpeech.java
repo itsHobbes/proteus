@@ -82,7 +82,7 @@ public class TextToSpeech {
 
   private String doesCharacterExist(String character) {
     String found = "";
-    for (CharacterCollection c : Characters.loadCollection()) {
+    for (CharacterCollection c : ShowCharacters.loadCollection()) {
       found = c.findCharacter(character);
       if (!found.isEmpty()) {
         break;
