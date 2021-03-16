@@ -20,7 +20,7 @@
 
         <junit>5.6.2</junit>
         <disparse.version>2dd45c0</disparse.version>
-        <jda.version>4.2.0_206</jda.version>
+        <jda.version>4.2.0_241</jda.version>
         <log4j.version>2.13.3</log4j.version>
         <jackson.version>2.11.1</jackson.version>
     

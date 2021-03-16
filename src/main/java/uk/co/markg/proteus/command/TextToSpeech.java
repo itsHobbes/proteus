@@ -1,10 +1,16 @@
 package uk.co.markg.proteus.command;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import disparse.discord.jda.DiscordRequest;
 import disparse.parser.dispatch.CooldownScope;
 import disparse.parser.reflection.CommandHandler;
@@ -13,16 +19,19 @@ import disparse.parser.reflection.Flag;
 import disparse.parser.reflection.MessageStrategy;
 import disparse.parser.reflection.ParsedEntity;
 import disparse.parser.reflection.Usage;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import uk.co.markg.proteus.App;
-import uk.co.markg.proteus.data.CharacterCollection;
 import uk.co.markg.proteus.FifteenAIAPIRequest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import uk.co.markg.proteus.data.CharacterCollection;
+import uk.co.markg.proteus.response.Response;
 
 public class TextToSpeech {
   private static final Logger logger = LogManager.getLogger(TextToSpeech.class);
-
   private static final String commandName = "speak";
+  private static final ObjectMapper mapper = new ObjectMapper();
+
+  private String message;
+  private String character;
 
   @ParsedEntity
   static class SpeakRequest {
@@ -44,12 +53,12 @@ public class TextToSpeech {
     }
 
     var event = request.getEvent();
-    String message = event.getMessage().getContentDisplay();
+    message = event.getMessage().getContentDisplay();
     if (message.length() > 300) {
       event.getChannel().sendMessage("Your input cannot be longer than 300 characters.");
     }
 
-    String character = doesCharacterExist(args.character);
+    character = doesCharacterExist(args.character);
     if (character.isEmpty()) {
       event.getChannel().sendMessage(
           "Your chosen character does not exist! Use the show command to see a list of supported characters. Put quotes `\"` around characters with spaces in their names");
@@ -62,10 +71,32 @@ public class TextToSpeech {
     event.getChannel().sendTyping().queue();
 
     try {
-      var future = apiRequest.getAudio(event.getAuthor().getIdLong(), character);
-      future.thenAccept(response -> event.getChannel().sendFile(response.toFile())
-          .append(getText(message)).submit().thenAccept(r -> response.toFile().delete()));
+      var future = apiRequest.getAudio();
+      future.thenAccept(response -> parseAndSendResponse(response, event));
     } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void parseAndSendResponse(String response, MessageReceivedEvent event) {
+    if (response.contains("Error")) {
+      event.getChannel()
+          .sendMessage(
+              "It looks like 15.ai is currently unavailable. See <http://15.ai> for more details.")
+          .queue();
+      return;
+    }
+    var filename = event.getAuthor().getIdLong() + "-" + character + ".mp3";
+    try (var fos = new FileOutputStream(filename)) {
+      var res = mapper.readValue(response, Response.class);
+      var samples = res.getSamples();
+      for (Integer sample : samples) {
+        fos.write(sample);
+      }
+      var file = new File(filename);
+      event.getMessage().reply(file).mentionRepliedUser(true).append(getText(message)).submit()
+          .thenAccept(r -> file.delete());
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }
@@ -77,7 +108,7 @@ public class TextToSpeech {
     if (channels.contains(request.getEvent().getChannel().getIdLong())) {
       return false;
     }
-    System.out.println("Channel not added");
+    logger.info("Channel not added");
     return true;
   }
 

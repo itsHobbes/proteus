@@ -355,25 +355,5 @@
                 "name": "Gaster"
             }
         ]
-    },
-    {
-        "source": "Celeste",
-        "characters": [
-            {
-                "name": "Madeline"
-            },
-            {
-                "name": "Theo"
-            },
-            {
-                "name": "Badeline"
-            },
-            {
-                "name": "Oshiro"
-            },
-            {
-                "name": "Granny"
-            }
-        ]
     }
 ]
